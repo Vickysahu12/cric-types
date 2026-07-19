@@ -1,0 +1,30 @@
+{
+  "name": "cric-types",
+  "version": "1.0.0",
+  "description": "Runtime type-checking for JavaScript, with cricket names — like Zod but Sachin, Virat and Dhoni.",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "node test.js",
+    "example": "node example.js"
+  },
+  "keywords": [
+    "validation",
+    "type-safety",
+    "runtime",
+    "schema",
+    "cricket",
+    "typechecking"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vickysahu12/cric-types.git"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
