@@ -82,6 +82,39 @@ if (!result.ok) {
 }
 ```
 
+## TypeScript
+
+One schema gives you both runtime validation and static types — no separate interface to write and keep in sync:
+
+```ts
+import { Sachin, Virat, Dhoni, Squad, Team, Infer } from 'cric-types';
+
+const Player = Squad({
+  naam: Virat,
+  runs: Sachin,
+  outOfForm: Dhoni,
+  centuries: Team(Sachin).optional(),   // becomes `centuries?: number[]`
+});
+
+type Player = Infer<typeof Player>;
+// { naam: string; runs: number; outOfForm: boolean; centuries?: number[] }
+
+const bad: Player = { naam: 'Kohli', runs: 'pachaas', outOfForm: true };
+//                                          ^^^^^^^^^ ❌ caught in your editor
+```
+
+`.parse()` returns your data fully typed, and `.safeParse()` narrows on `.ok`:
+
+```ts
+const player = Player.parse(await res.json());
+player.runs.toFixed(2);   // number — autocompleted, checked
+
+const result = Player.safeParse(input);
+if (result.ok) result.value.naam;   // string
+```
+
+Types ship with the package. Nothing to install, no `@types/` needed.
+
 ## API
 
 Every validator has three methods:
