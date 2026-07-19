@@ -5,6 +5,11 @@ Runtime type-checking for JavaScript — with cricket names.
 `Sachin` means number. `Virat` means string. `Dhoni` means boolean.
 You use these to say what your data should look like, and `cric-types` makes sure it really does.
 
+> **This package has moved.** Future updates will be published under
+> [`@vickyyyy12/cric-types`](https://www.npmjs.com/package/@vickyyyy12/cric-types).
+> Install with `npm install @vickyyyy12/cric-types` instead — everything below still applies,
+> just swap the package name in your `require`/`import`.
+
 ## The problem, in 4 lines
 
 Plain JavaScript never checks anything:
@@ -39,7 +44,7 @@ The error names the exact field that's wrong — even deep inside arrays, like `
 ## Install
 
 ```bash
-npm install cric-types
+npm install @vickyyyy12/cric-types
 ```
 
 Zero dependencies. Works in plain Node with `require` — no config, no compiler.
@@ -57,7 +62,7 @@ Zero dependencies. Works in plain Node with `require` — no config, no compiler
 ## Usage
 
 ```js
-const { Sachin, Virat, Dhoni, Squad, Team } = require('cric-types');
+const { Sachin, Virat, Dhoni, Squad, Team } = require('@vickyyyy12/cric-types');
 
 const Player = Squad({
   naam: Virat,               // string
@@ -87,7 +92,7 @@ if (!result.ok) {
 One schema gives you both runtime validation and static types — no separate interface to write and keep in sync:
 
 ```ts
-import { Sachin, Virat, Dhoni, Squad, Team, Infer } from 'cric-types';
+import { Sachin, Virat, Dhoni, Squad, Team, Infer } from '@vickyyyy12/cric-types';
 
 const Player = Squad({
   naam: Virat,
